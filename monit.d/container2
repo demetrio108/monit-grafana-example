@@ -1,0 +1,6 @@
+check host container2 with address container2
+  if failed
+    port 8080
+    protocol http
+    request /status 
+  then alert

@@ -1,0 +1,56 @@
+version: '3'
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 192.168.206.0/24
+
+services:
+  container1:
+    restart: on-failure
+    container_name: container1
+    image: quii/mockingjay-server:1.10.7
+    command: -port 8080 -config=/test.yaml
+    volumes:
+      - ./test.yaml:/test.yaml
+
+  container2:
+    restart: on-failure
+    container_name: container2
+    image: quii/mockingjay-server:1.10.7
+    command: -port 8080 -config=/test.yaml
+    volumes:
+      - ./test.yaml:/test.yaml
+
+  container3:
+    restart: on-failure
+    container_name: container3
+    image: quii/mockingjay-server:1.10.7
+    command: -port 8080 -config=/test.yaml
+    volumes:
+      - ./test.yaml:/test.yaml
+  
+  grafana:
+    restart: on-failure
+    container_name: grafana
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+  
+  monit:
+    restart: on-failure
+    container_name: monit
+    hostname: monit_test
+    image: demetrio108/monit
+    volumes:
+      - ./monit.d:/etc/monit.d
+    ports:
+      - 2812:2812
+
+  monit-grafana:
+    restart: on-failure
+    container_name: monit-grafana
+    image: demetrio108/monit-grafana
+    volumes:
+      - ./monit-grafana.yml:/etc/monit-grafana.yml

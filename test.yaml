@@ -1,0 +1,13 @@
+- name: status
+  request:
+    uri: /status
+    method: GET
+  response:
+    code: 200
+    body: |
+      {
+        "status": "success"
+      }
+
+    headers:
+      content-type: application/json
