@@ -31,7 +31,7 @@ Use URL http://monit-grafana:8080/monit_test/ and leave default values for other
 
 Select Dashboards->Manage from menu, then click Upload button and choose sample provided dashboard 
 `monit-grafana-dashboard.json`. On successfull import you should see dashboard like this:
-![monit example dashboard]((img/dashboard.png) 
+![monit example dashboard](img/dashboard.png) 
 
 Try stopping/starting containers
 ```
