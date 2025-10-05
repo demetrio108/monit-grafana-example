@@ -18,7 +18,7 @@ Launch deployment:
 ```
 docker-compose up
 ``` 
-Install SimpleJSON plugin from another terminal window:
+Install SimpleJSON plugin from another terminal window (This was for old Grafana v7):
 ```
 docker exec -ti grafana grafana-cli plugins install grafana-simple-json-datasource
 ```
@@ -26,7 +26,7 @@ Restart Grafana:
 ```
 docker restart grafana
 ```
-Login to Grafana (http://localhost:3000 admin/admin) and create new datasource with type SimpleJSON. 
+Login to Grafana (http://localhost:3000 admin/admin) and create new datasource with type SimpleJSON. For new Grafana v12 it's simpod-json.
 Use URL http://monit-grafana:8080/monit_test/ and leave default values for other parameters.
 
 Select Dashboards->Manage from menu, then click Upload button and choose sample provided dashboard 
